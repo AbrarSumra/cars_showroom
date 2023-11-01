@@ -27,30 +27,43 @@ class CarsScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: SizedBox(
-                    height: 50,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide.none,
-                        ),
-                        filled: true,
-                        fillColor: Colors.black45,
-                        prefixIcon: const Icon(
-                          CupertinoIcons.search,
-                          color: Colors.white,
-                          size: 20,
-                        ),
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        label: const Text("Search your car here..."),
-                        labelStyle: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        height: 50,
+                        width: 340,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide.none,
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            prefixIcon: const Icon(
+                              CupertinoIcons.search,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                            label: const Text("Search your car here..."),
+                            labelStyle: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          CupertinoIcons.line_horizontal_3_decrease,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -778,6 +791,7 @@ class CarsScreen extends StatelessWidget {
           ],
         ),
       ),
+      drawer: Drawer(),
     );
   }
 }

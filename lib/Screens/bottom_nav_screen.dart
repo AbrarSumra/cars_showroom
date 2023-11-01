@@ -1,4 +1,4 @@
-import 'package:car_showroom/lib/Screens/setting_screen.dart';
+import 'package:car_showroom/Screens/setting_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
