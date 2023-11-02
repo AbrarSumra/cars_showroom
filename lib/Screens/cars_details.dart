@@ -173,25 +173,65 @@ class _CstmCarState extends State<CstmCar> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    widget.price,
-                                    style: const TextStyle(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        widget.price,
+                                        style: const TextStyle(
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      InkWell(
+                                        onTap: () {},
+                                        child: const Text(
+                                          "Get On Road Price",
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   ),
                                   const SizedBox(height: 5),
-                                  const Text(
-                                    "Avg.Ex-Showroom price",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.grey,
-                                    ),
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        "Avg.Ex-Showroom price",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      InkWell(
+                                        onTap: () {},
+                                        child: const Row(
+                                          children: [
+                                            Text(
+                                              "New Delhi",
+                                              style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                            Icon(
+                                              Icons.edit,
+                                              color: Colors.blue,
+                                              size: 15,
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
                                   ),
                                 ],
                               ),
                               const Spacer(),
-                              Column(
+                              /*Column(
                                 children: [
                                   SizedBox(
                                     width: 100,
@@ -231,20 +271,10 @@ class _CstmCarState extends State<CstmCar> {
                                     ),
                                   ),
                                 ],
-                              )
+                              )*/
                             ],
                           ),
                           const SizedBox(height: 5),
-                          InkWell(
-                            onTap: () {},
-                            child: const Text(
-                              "Get On Road Price",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 15,
-                              ),
-                            ),
-                          )
                         ],
                       ),
                       const SizedBox(height: 20),

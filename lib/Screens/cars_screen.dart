@@ -2,15 +2,90 @@ import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 
 import "../Constant/custom_Image.dart";
+import "../Constant/icon_with_text.dart";
 import "../data/car_images_data.dart";
 import "cars_details.dart";
+import 'package:carousel_slider/carousel_slider.dart';
 
-class CarsScreen extends StatelessWidget {
+class CarsScreen extends StatefulWidget {
   const CarsScreen({super.key});
+
+  @override
+  State<CarsScreen> createState() => _CarsScreenState();
+}
+
+class _CarsScreenState extends State<CarsScreen> {
+  bool _isSearch = false;
+  final int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: const Icon(Icons.double_arrow),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        }),
+        backgroundColor: Colors.cyan,
+        title: const Text("Car Showroom"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _isSearch
+                    ? SizedBox(
+                        height: 50,
+                        width: 290,
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            prefixIcon: Icon(
+                              CupertinoIcons.search,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                            label: Text("Search your car here..."),
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(),
+              ],
+            ),
+          ),
+          IconButton(
+            icon: const Icon(CupertinoIcons.search),
+            onPressed: () {
+              setState(() {
+                _isSearch = !_isSearch;
+              });
+            },
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              CupertinoIcons.line_horizontal_3_decrease,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Stack(
@@ -24,47 +99,30 @@ class CarsScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                const SizedBox(height: 40),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: 340,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide.none,
-                            ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            prefixIcon: const Icon(
-                              CupertinoIcons.search,
-                              color: Colors.black,
-                              size: 20,
-                            ),
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
-                            label: const Text("Search your car here..."),
-                            labelStyle: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          CupertinoIcons.line_horizontal_3_decrease,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                      ),
-                    ],
+                const SizedBox(height: 10),
+                CarouselSlider(
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 2),
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 0.9,
+                    enlargeCenterPage: true,
+                    initialPage: _currentIndex,
+                    enableInfiniteScroll: true,
                   ),
+                  items: allCars.map((photo) {
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: SizedBox(
+                        height: 200,
+                        width: 350,
+                        child: Image.asset(
+                          photo,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  }).toList(),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -786,12 +844,144 @@ class CarsScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
+                ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.keyboard_double_arrow_down,
+                    color: Colors.black,
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  label: const Text(
+                    "Show more",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
               ],
             ),
           ],
         ),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            Container(
+              height: 120,
+              color: Colors.blue.shade200,
+              child: Center(
+                child: Row(
+                  children: [
+                    const SizedBox(width: 10),
+                    const CircleAvatar(
+                      maxRadius: 30,
+                    ),
+                    const Spacer(),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: const Text(
+                        "English",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange.shade900,
+                        fixedSize: const Size(100, 25),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: const Text("Login"),
+                    ),
+                    const SizedBox(width: 10),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 30),
+                  CstmIcon(
+                    iconData: Icons.home_outlined,
+                    name: "Home",
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  CstmIcon(
+                    iconData: Icons.car_rental_outlined,
+                    name: "New Cars",
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  CstmIcon(
+                    iconData: Icons.list_alt_outlined,
+                    name: "Reviews and News",
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  CstmIcon(
+                    iconData: Icons.favorite_border,
+                    name: "My Shortlist",
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  CstmIcon(
+                    iconData: Icons.wallet,
+                    name: "Car Loan",
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  CstmIcon(
+                    iconData: Icons.local_atm_outlined,
+                    name: "Loan Against Car",
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  CstmIcon(
+                    iconData: Icons.language,
+                    name: "Choose Language",
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  const Text("TOLL FREE NUMBER"),
+                  const SizedBox(height: 2),
+                  InkWell(
+                    onTap: () {},
+                    child: const Row(
+                      children: [
+                        Icon(
+                          CupertinoIcons.phone,
+                          color: Colors.blue,
+                        ),
+                        Text(
+                          "1800 1234 123",
+                          style: TextStyle(
+                              color: Colors.blue, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

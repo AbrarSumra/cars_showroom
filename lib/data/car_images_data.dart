@@ -1,3 +1,36 @@
+List<String> allCars = [
+  "assets/images/swift/swift-exterior-right-front-three-quarter-63.jpeg.webp",
+  "assets/images/creta/creta7.jpeg.webp",
+  "assets/images/thar/thar-exterior-left-rear-three-quarter.jpeg.webp",
+  "assets/images/innova/innova-crysta-exterior-right-front-three-quarter-3.jpeg.webp",
+  "assets/images/harrier/harrier-facelift-exterior-right-front-three-quarter-2.jpeg.webp",
+  "assets/images/fortuner/toyota-fortuner-right-front-three-quarter29.jpeg.webp",
+  "assets/images/xuv/xuv700-exterior-left-rear-three-quarter-2.jpeg.webp",
+  "assets/images/brezza/brezza-exterior-left-side-view.jpeg.webp",
+  "assets/images/safari/safari-facelift-exterior-front-view-45.jpeg.webp",
+  "assets/images/seltos/seltos-exterior-right-front-three-quarter-30.jpeg.webp",
+  "assets/images/baleno/baleno-exterior-right-side-view.jpeg.webp",
+  "assets/images/jeep_compass/compass-exterior-left-rear-three-quarter.jpeg.webp",
+  "assets/images/wranglor/wrangler-exterior-right-front-three-quarter-51.jpeg.webp",
+  'assets/images/amaze/amaze-facelift-exterior-left-rear-three-quarter.jpeg.webp',
+  "assets/images/kodiaq/kodiaq-exterior-rear-view.jpeg.webp",
+  "assets/images/hector/hector-exterior-right-front-three-quarter-73.jpeg.webp",
+  "assets/images/bmw/i7-exterior-right-side-view.jpeg.webp",
+  "assets/images/polo/polo-exterior-left-rear-three-quarter-2.jpeg.webp",
+  "assets/images/discovery/landrover-discovery-sport-left-side-view340.jpeg.webp",
+  "assets/images/gloster/gloster-exterior-front-view-79.jpeg.webp",
+  "assets/images/mercedes_e_class/e-class-exterior-right-front-three-quarter-26.jpeg.webp",
+  "assets/images/audi/a4-exterior-right-side-view.jpeg.webp",
+  "assets/images/jaguar/f-pace-exterior-rear-view.jpeg.webp",
+  "assets/images/mini_cooper/cooper-se-exterior-left-rear-three-quarter-2.jpeg.webp",
+  "assets/images/alcazar/alcazar-exterior-left-side-view.jpeg.webp",
+  "assets/images/urban_cruiser/urban-cruiser-hyryder-exterior-front-view-2.jpeg.webp",
+  "assets/images/carnival/kia-carnival-right-front-three-quarter6.jpeg.webp",
+  "assets/images/endeavour/endeavour-exterior-left-rear-three-quarter-2.jpeg.webp",
+  "assets/images/honda_city/city-exterior-left-side-view.jpeg.webp",
+  "assets/images/slavia/slavia-exterior-right-front-three-quarter-65.jpeg.webp",
+];
+
 List<String> swiftImages = [
   "assets/images/swift/swift-exterior-front-view.jpeg.webp",
   "assets/images/swift/swift-exterior-left-rear-three-quarter.jpeg.webp",
@@ -308,14 +341,14 @@ List<String> carnival = [
 ];
 
 List<String> hondaCity = [
-  "assets/images/honda_city/city-exterior-front-view.jpeg.webp"
-      "assets/images/honda_city/city-exterior-left-front-three-quarter.jpeg.webp"
-      "assets/images/honda_city/city-exterior-left-rear-three-quarter.jpeg.webp"
-      "assets/images/honda_city/city-exterior-left-side-view.jpeg.webp"
-      "assets/images/honda_city/city-exterior-rear-view.jpeg.webp"
-      "assets/images/honda_city/city-exterior-right-front-three-quarter-74.jpeg.webp"
-      "assets/images/honda_city/city-exterior-right-rear-three-quarter.jpeg.webp"
-      "assets/images/honda_city/city-interior-dashboard.jpeg.webp"
+  "assets/images/honda_city/city-exterior-front-view.jpeg.webp",
+  "assets/images/honda_city/city-exterior-left-front-three-quarter.jpeg.webp",
+  "assets/images/honda_city/city-exterior-left-rear-three-quarter.jpeg.webp",
+  "assets/images/honda_city/city-exterior-left-side-view.jpeg.webp",
+  "assets/images/honda_city/city-exterior-rear-view.jpeg.webp",
+  "assets/images/honda_city/city-exterior-right-front-three-quarter-74.jpeg.webp",
+  "assets/images/honda_city/city-exterior-right-rear-three-quarter.jpeg.webp",
+  "assets/images/honda_city/city-interior-dashboard.jpeg.webp",
 ];
 
 List<String> slavia = [
